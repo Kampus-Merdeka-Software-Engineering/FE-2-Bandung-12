@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="booking.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap"
+      rel="stylesheet"
+    />
+    <title>Reservasi</title>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="brand">
+        <h4>Reservasimu</h4> <!-- membuat navbar sebelah kiri?-->
+      </div>
+      <ul>
+        <li>Check-In:<span>After 2:00 PM</span></li>
+        <li>Check-Out:<span>Before 12:00 PM</span></li>
+        <h5>All Stay Include</h5>
+        <li>Kolam renang kecil</li>
+        <li>Perlengkapan mandi</li>
+        <li>Makan pagi, siang dan malam</li>
+        <li>Akses semua fasilitas di Lakeswara Hotel</li>
+        <li>Balkon kecil (Khusus Type Jasmine)</li>
+        <li>Kulkas kecil (Khusus Type Jasmine)</li>
+      </ul>
+    </div>
+
+    <div class="header">
+      <h4>Reservasi</h4> <!-- supaya dipin diheader? -->
+    </div>
+
+    <section class="book">
+      <div class="container-flex">
+        <div class="input-grid">
+          <div class="box">
+            <label>Check In:</label>
+            <input type="date" placeholder="Check-in-Date" />
+          </div>
+        </div>
+        <div class="input-grid">
+          <div class="box">
+            <label>Check Out:</label>
+            <input type="date" placeholder="Check-in-Date" />
+          </div>
+        </div>
+        <div class="input-grid">
+          <div class="box">
+            <label>Adults:</label>
+            <input type="number" placeholder="0" />
+          </div>
+        </div>
+        <div class="input-grid">
+          <div class="box">
+            <label>Children:</label>
+            <input type="number" placeholder="0" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="box-container">
+      <h4>Pilih Type</h4> <!-- ada option untuk memilih type jasmine atau orchid -->
+      <div class="box">
+        <img
+          src="image/Kamar Deluxe.jpg"
+        />
+        <div class="content">
+          <h5>Luxury Rooms</h5>
+          <p>
+            Kamar dengan tipe mewah. kami menyediakan 1 kasur besar dengan ruangan yang luas.
+          </p>
+          <a href="#" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img
+          src="image/Deluxe Room.jpg"
+        />
+        <div class="content">
+          <h5>Deluxe Rooms</h5>
+          <p>
+            Kamar dengan tipe standart. kami menyediakan 1 kasur besar dengan ruangan sedang.
+          </p>
+          <a href="#" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img
+          src="image/Glamours room.jpg"
+        />
+        <div class="content">
+          <h5>Glamours Rooms</h5>
+          <p>
+            Kamar dengan tipe kecil. kami menyediakan 1 kasur besar dengan ruangan minimalist
+          </p>
+          <a href="#" class="btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="left">
+        <h5>Billing Address</h5>
+        <form>
+          Full name
+          <input type="text" name="" placeholder="Enter name" />
+          Email
+          <input type="text" name="" placeholder="Enter email" />
+          Address
+          <input type="text" name="" placeholder="Enter address" />
+          City
+          <input type="text" name="" placeholder="Enter city" />
+          State
+          <input type="text" name="" placeholder="Enter state" />
+          Zip Code
+          <input type="number" name="" placeholder="Zip Code" />
+          <div>
+        </form>
+      </div>
+
+      <div class="right">
+        <h5>Payment Information</h5>
+        <form>
+          
+          <img src="image/payment.jpg" width="200"> <!-- cara memilih pembayaran? -->
+          <br><br>
+
+         Card Number
+          <input type="text" name="" placeholder="Enter card number" />
+          Exp Date
+          <input type="text" name="" placeholder="Enter exp date" />
+         Name on Card
+          <input type="text" name="" placeholder="Enter name card" />
+          CVV
+          <input type="text" name="" placeholder="Enter cvv" />
+          <div>
+        </form>
+      </div>
+    </div>
+
+    <div class="btn-submit">
+      
+      <input type="button" name="submit" value="Complete Booking"> <a href="Gallery.html"></a> <!-- cara membuat notifikasi pembayaran berhasil?-->
+    </div>
+
+  </body>
+</html>
 
