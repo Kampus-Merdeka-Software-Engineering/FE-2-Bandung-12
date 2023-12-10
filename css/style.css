@@ -30,7 +30,7 @@ nav {
 
 #sep-line{
   color: var(--text-dark);
-  font-size:1.75rem
+  font-size:1.5rem
 }
 
 
@@ -47,10 +47,6 @@ nav {
 }
 }
 
-@media screen and (prefers-reduced-motion: no-preference){
-.header-top .container .grid {
-    transition: min-height .35s ease-in-out;
-}}
 
 .main-header .grid {
   flex-wrap: nowrap;
@@ -82,6 +78,11 @@ nav {
   font-size: 1.25rem;
 }
 
+@media (width < 600px) {
+  .nav__links {
+    display: none;
+  }}
+
 .link a {
   font-weight: 500;
   color: var(--text-light);
@@ -108,8 +109,16 @@ a{
   margin-right: auto;
   margin-left: auto;
 }
+
 .hgroup-center{
   text-align: center;
+}
+
+.hgroup-limited {
+  max-width: 680px;
+  margin-right: auto;
+  margin-bottom: 4.6428571429rem;
+  margin-left: auto;
 }
 
 .heading-h{
@@ -122,12 +131,7 @@ a{
   max-width: 100%;
 }
 
-.hgroup-limited {
-  max-width: 680px;
-  margin-right: auto;
-  margin-bottom: 4.6428571429rem;
-  margin-left: auto;
-}
+
 
 header {
     display: block;
@@ -173,19 +177,6 @@ header {
   width: calc(350% - 3.5rem);
 }
 
-.card {
-  display: inline-block;
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.image-card {
-  max-width : 100%;
-  height :auto;
-  vertical-align: top;
-}
-
 .image-slide{
 display: block;
 }
@@ -209,11 +200,13 @@ picture{
     width: auto;
     margin: 0 auto;
 }
+
 .card figure picture img{
   height: 100%;
   width: auto;
   margin: 0 auto;
 }
+
 .card-img {
   max-width: 100%;
   height: auto;
@@ -227,6 +220,7 @@ picture{
     margin: 20px auto 0;
     padding: 0;
 }}
+
 @media screen and (max-width: 1023px){
   .hgroup{
       max-width: 800px;
@@ -243,7 +237,7 @@ picture{
   }}
 
   @media screen and (max-width: 1023px){
-  .card--advanced:not(.card-media-3) .hgroup.card-copy--with-accordion {
+  .card-advanced:not(.card-media-3) .hgroup.card-copy--with-accordion {
       max-width: 800px;
       width: auto;
       margin: 20px auto 0;
@@ -276,7 +270,7 @@ picture{
       padding: 30px 50px;
       box-sizing: border-box;
   }
-  .card--horizontal.card-media-right .hgroup {
+  .card-horizontal.card-media-right .hgroup {
       padding: 0 50px 0 0;
   }
   .card .hgroup.card-copy-with-accordion {
@@ -305,6 +299,7 @@ picture{
   .card .hgroup {
       margin-left: 0;
   }
+
   .card figcaption, .card header {
       margin-top: 1.1428571429rem;
       margin-bottom: 0;
@@ -321,101 +316,7 @@ picture{
   letter-spacing: .05em;
 }
 
-.site-foot{
-  display:flex;
-  color: #fff;
-  font-family: 'Bitter', serif;
-}
 
-@media
-{.site-foot-logo{
-  display:none;
-}}
-
-.site-foot-logo{
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-}
-
-@media (min-width: 700px)
-{.site-foot-inner {
-    padding-right: 6vw;
-    padding-right: var(--gutter-s);
-    padding-left: 6vw;
-    padding-left: calc(var(--gutter-s));
-}}
-
-.site-foot-inner{
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #024533;
-  padding-left: 8vw;
-  padding-left: var(--gutter);
-  padding-right: 8vw;
-  padding-right: var(--gutter);
-}
-
-.padding-top-xs {
-  padding-top: 3rem;
-  padding-top: var(--spacing-xs);
-}
-
-.padding-bottom-xxs {
-  padding-bottom: 1.5rem;
-  padding-bottom: var(--spacing-xxs);
-}
-
-.site-foot-title{
-  color: #fff;
-  margin-bottom: 1.5rem;
-  font-size: 3rem;
-  text-align: center;
-}
-
-.site-foot-contact-list {
-  margin-bottom: 1.5rem;
-  font-size: 3rem;
-}
-
-#image-logo-footer{
-  max-width: 30%;
-  height: auto;
-}
-
-.site-foot-menu {
-  display: flex;
-}
-
-@media (min-width: 700px)
-{.site-foot-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}}
-
-.site-foot-bottom{
-  width: 100%;
-  margin-top: 1.5rem;
-  margin-left:1.5rem;
-  font-size:2rem;
-}
-
-.site-foot-copyright {
-  color: #fff;
-  font-size: 3rem;
-  opacity: .5;
-}
-
-
-
-/* .main-header{
-  flex-wrap: nowrap;
-} */
 
 .main-header{
   display: flex;
@@ -444,19 +345,12 @@ picture{
   max-width: 1600px;
 }
 
-.grid-space-between {
-  justify-content: space-between;
-}
-
 .main-header .grid-item {
   display: flex;
   align-items: center;
   margin-bottom: 0;
 }
 
-.main-header-right {
-  justify-content: flex-end;
-}
 
 /*style accomo*/
 
@@ -469,34 +363,34 @@ article{
   display: block;
 }
 
+@media screen and (max-width: 768px){
 .padded-container {
-padding: 8%;
-}
+    padding: 8%;
+}}
 
 .padded-container-slim {
   padding: 5% 9%;
 }
 
+@media screen and (max-width: 768px){
 .padded-container {
-  padding-right: 10%;
-  padding-left: 10%;
-}
+    padding-right: 10%;
+    padding-left: 10%;
+}}
 
-.padded-container {
+.padded-container{
   padding: 8.3% 17.5% calc(8.3% - 1.42857rem);
 }
 
-.bg-white{
-  background-color: #fff;
-}
 
-.list-columns-3 {
+@media screen and (max-width: 1023px){
+.list-col-3 {
   -moz-column-count: 2;
   column-count: 2;
   -moz-column-gap: 50px;
   column-gap: 50px;
   grid-template-columns: 1fr 1fr;
-}
+}}
 
 .list-col-3 {
   -moz-column-count: 3;
@@ -535,6 +429,8 @@ ul {
   padding-inline-start: 40px;
 }
 
+/*end of style accomodation*/
+
 .card figcaption.card-caption, .card header.card-caption {
   margin-top: 1.5714285714rem;
 }
@@ -543,10 +439,12 @@ ul {
   padding-right: 4.2857142857rem;
   padding-left: 4.2857142857rem;
 }}
+
 .card-centered figcaption {
   padding-right: 1.75rem;
   padding-left: 1.75rem;
 }
+
 .card figcaption, .card header {
   margin-top: 1.1428571429rem;
   margin-bottom: 0;
@@ -611,7 +509,7 @@ li ::marker{
 }
 
 @media screen and (max-width: 1023px){
-.card-advanced:not(.card--media-3) {
+.card-advanced:not(.card-media-3) {
     display: block;
 }}
 
@@ -630,7 +528,6 @@ li ::marker{
     flex-direction: column;
     margin-top: 0.4285714286rem;
   }}
-
 
 .card-advanced {
   padding: 0;
@@ -678,17 +575,17 @@ li ::marker{
   box-sizing: border-box;
 }
 
-.card-horizontal.card-media-right .hgroup {
-  padding: 0 50px 0 0;
-}
+
 .card .hgroup.card-copy-with-accordion {
   padding-left: 40px;
   margin: 0;
 }
+
 .card-advanced .hgroup {
   width: calc(33.3333% + 25px);
   box-sizing: border-box;
 }
+
 .card-horizontal .hgroup {
   display: flex;
   flex-direction: column;
@@ -700,6 +597,7 @@ li ::marker{
 .card[data-card-carousel] .slick {
   position: relative;
 }
+
 .box{
   box-sizing: border-box;
 }
@@ -727,7 +625,7 @@ li ::marker{
 }
 
 footer{
-    display:blo
+    display:block;
 }
 
 .hgroup-divider{
@@ -736,12 +634,12 @@ footer{
   text-align: center;
   margin: 2.1428571429rem 0;
   max-width: none;
-}
+} */
 
 
-.hgroup-divider .subtitle{
+ .hgroup-divider .subtitle{
   margin: 0 4.0714285714rem;
-}
+} 
 
 .hgroup .subtitle{
   margin-top: 0;
@@ -775,35 +673,36 @@ footer{
 
 
 .footer {
-  font-size: 2rem;
+  font-size: 1.25rem;
   display: block;
 }
 
 .footer__container {
   display: grid;
   grid-template-columns: 2fr repeat(3, 1fr);
-  gap: 5rem;
+  gap: 15rem;
 }
 
 .footer__col h3 {
   margin-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-dark);
 }
 
-.footer__col h4 {
+/* .footer__col h4 {
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-dark);
-}
+} */
 
 .footer__col p {
   margin-bottom: 1rem;
   color: var(--text-light);
   cursor: pointer;
   transition: 0.3s;
+  text-align: justify;
 }
 
 .footer__col p:hover {
@@ -815,7 +714,7 @@ footer{
   max-width: var(--max-width);
   margin: auto;
   padding: 1rem;
-  font-size: 2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-light);
   text-align: center;
@@ -835,53 +734,10 @@ footer{
   background-color: #fff;
 }
 
-@media (width < 900px) {
-  .booking__container form {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .popular__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
 
-  .client__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
 
-  .footer__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (width < 600px) {
-  .nav__links {
-    display: none;
-  }
-
-  .header__container {
-    padding-bottom: 25rem;
-  }
-
-  .booking__container {
-    flex-direction: column;
-    bottom: -25rem;
-  }
-
-  .booking__container form {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .popular__grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .client__grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
 
   .footer__container {
     gap: 2rem;
   }
-}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reserve.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Bitter&display=swap" rel="stylesheet">
+
+    <title>Reservation</title>
+  </head>
+<body>
+
+<section class="container">
+    <header>Reservation</header>
+    <form id="reservationForm" class="form">
+        <div class="input-box">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter Full Name" />
+        </div>
+
+        <div class="input-box">
+            <label for="email">Email Address</label>
+            <input type="text" id="email" placeholder="Enter Email Address" />
+        </div>
+
+        <div class="input-box">
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="Enter Address" />
+        </div>
+
+        <div class="column">
+            <div class="input-box">
+                <label for="checkInDate">Check-In</label>
+                <input type="date" id="checkInDate" placeholder="Check-In Date" />
+            </div>
+
+            <div class="input-box">
+                <label for="checkOutDate">Check-Out</label>
+                <input type="date" id="checkOutDate" placeholder="Check-Out Date" />
+            </div>
+        </div>
+
+        <div class="input-box">
+            <label for="guestCount">Guest</label>
+            <input type="number" id="guestCount" placeholder="0" />
+        </div>
+
+        <div class="column">
+            <div class="select-box">
+                <select id="typeSelect">
+                    <option hidden>Type</option>
+                    <option>Type Jasmine</option>
+                    <option>Type Orchid</option>
+                </select>
+            </div>
+
+            <div class="select-box">
+                <select id="roomSelect">
+                    <option hidden>Rooms</option>
+                    <option>Luxury Room</option>
+                    <option>Deluxe Room</option>
+                    <option>Glamours Room</option>
+                    <option>Ramayana Room</option>
+                    <option>Nakula Room</option>
+                    <option>Sadewa Room</option>
+                </select>
+            </div>
+        </div>
+
+        <header class="container-flex">Payment</header>
+
+        <div class="select-box">
+            <select id="paymentSelect">
+                <option hidden>Name Card</option>
+                <option>BRI</option>
+                <option>BNI</option>
+                <option>BCA</option>
+            </select>
+        </div>
+
+        <div class="input-box">
+            <label for="cardNumber">Card Number</label>
+            <input type="number" id="cardNumber" placeholder="Enter Card Number" />
+        </div>
+
+        <div class="input-box">
+            <label for="cvv">CVV</label>
+            <input type="number" id="cvv" placeholder="Enter CVV" />
+        </div>
+
+        <button>
+            <input type="submit" value="submit">
+        </button>
+        
+        
+    </form>
+</section>
+
+<script src="js/reserve.js"></script>
+
+</body>
+</html>
