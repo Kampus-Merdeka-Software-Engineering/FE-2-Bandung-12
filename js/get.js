@@ -61,57 +61,43 @@ const API_URL = "http://localhost:3000";
 // };
 
 
-const fetchLatestReservationId = async () => {
-	try {
-	  const response = await fetch(`${API_URL}/reserve/latest`);
-	  const latestReservation = await response.json();
-	  console.log(latestReservation);
-	  displayLatestUser(latestReservation);
-  
-	} catch (error) {
-	  console.error("Error:", error);
-	}
-  };
-  
-  const displayLatestReservation = (latestReservations) => {
+const displayReservation = (reservations) => {
 	const section = document.getElementById("reserve-info");
   
-	latestReservations.forEach((latestReservation) => {
-	  const fullName = latestReservation.full_name;
-	  const emailAddress = latestReservation.email_address;
-	  const address = latestReservation.address;
-	  const checkInDateTime = latestReservation.check_in;
-	  const checkOutDateTime = latestReservation.check_out;
-	  const numberOfGuests = latestReservation.guest;
-	  const roomType = latestReservation.type;
-	  const numberOfRooms = latestReservation.rooms;
-	  const conciergeContact = latestReservation.concierge_contact;
+	// Create a table element
+	const table = document.createElement("table");
   
-	  const div = document.createElement("div");
-	  div.innerHTML = `
-		<p>Dear ${fullName},</p>
-		<p>Thank you for choosing to stay with us at ${latestReservation.hotelName}. We appreciate your trust in our services and are delighted that you have chosen our hotel for your upcoming stay.</p>
-		<p>Here is a summary of your booking:</p>
-		<ul>
-		  <li>Full Name: ${fullName}</li>
-		  <li>Email Address: ${emailAddress}</li>
-		  <li>Address: ${address}</li>
-		  <li>Check-In: ${checkInDateTime}</li>
-		  <li>Check-Out: ${checkOutDateTime}</li>
-		  <li>Room Type: ${roomType}</li>
-		  <li>Number of Rooms: ${numberOfRooms}</li>
-		  <li>Number of Guests: ${numberOfGuests}</li>
-		</ul>
-		<p>We strive to make your experience exceptional and memorable. From our comfortable accommodations to our outstanding amenities, we are committed to ensuring your stay is both enjoyable and hassle-free.</p>
-		<p>As the date of your arrival approaches, we want to express our sincere anticipation. We hope that your time with us exceeds your expectations, and that every moment in our hotel becomes a cherished memory.</p>
-		<p>Should you have any special requests or requirements, please do not hesitate to contact our concierge team at ${conciergeContact}. We are here to make your stay truly exceptional.</p>
-		<p>Once again, thank you for choosing ${latestReservation.hotelName}. We eagerly await your arrival and look forward to providing you with a warm and welcoming experience.</p>
-		<p>Safe travels, and we can't wait to host you!</p>
-		<p>Warm regards,</p>
-	  `;
+	// Create a table header row
+	const headerRow = table.createTHead().insertRow(0);
+	const headers = ["Full Name", "Email", "Address", "Check-In Date and Time", "Check-Out Date and Time", "Number of Guests", "Room Type", "Number of Rooms"];
   
-	  section.appendChild(div);
+	headers.forEach((headerText, index) => {
+	  const headerCell = headerRow.insertCell(index);
+	  headerCell.textContent = headerText;
 	});
+  
+	// Create a table body
+	const tbody = table.createTBody();
+  
+	reservations.forEach((reservation) => {
+	  const row = tbody.insertRow();
+  
+	  // Use Object.values to get an array of property values
+	  const reservationValues = Object.values(reservation);
+  
+	  reservationValues.forEach((value, index) => {
+		const cell = row.insertCell(index);
+		cell.textContent = value;
+	  });
+	});
+  
+	// Append the table to the section
+	section.appendChild(table);
   };
+  
+  // Assume "reservations" is an array of reservation objects
+  
+  // Display the reservation information
+  displayReservation(reservations);
   
   
