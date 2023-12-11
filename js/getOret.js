@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:3000";
-// const API_URL = "https://be-2-bandung-12-production.up.railway.app"
+// const API_URL = "http://localhost:3000";
+const API_URL = "https://be-2-bandung-12-production.up.railway.app"
 
 
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	}
 });
 
-// product api
+// reserve api
 
 const fetchReserve = async () => {
 	try {
