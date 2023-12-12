@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Your reservation has been successfully submitted.",
                 "success"
             ).then(() => {
-                window.location.href = "index.html";
+                window.location.href = "../reserveHistory.html";
             });
         })
         .catch((error) => {

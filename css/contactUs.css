@@ -6,7 +6,7 @@
   --border: 0.1rem solid rgba(0, 0, 0, 0.3);
 }
 
-* {
+/* * {
   font-family: "Abhaya", sans-serif;
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@
   outline: none;
   border: none;
   text-decoration: none;
-}
+} */
 
 *::selection {
   background-color: var(--sub-color);
