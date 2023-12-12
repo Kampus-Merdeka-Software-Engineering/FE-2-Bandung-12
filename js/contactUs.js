@@ -1,26 +1,17 @@
-const API_URL = "https://be-2-bandung-12-production.up.railway.app";
-
 document.addEventListener("DOMContentLoaded", function () {
-    const reservationForm = document.getElementById("reservationForm");
+    const contactForm = document.getElementById("formContact");
 
-    reservationForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
         // Retrieving form values
-        const full_name = document.getElementById('fullName').value;
-        const email_address = document.getElementById('email').value;
-        const address = document.getElementById('address').value;
-        const check_in = document.getElementById('checkInDate').value;
-        const check_out = document.getElementById('checkOutDate').value;
-        const guest = document.getElementById('guestCount').value;
-        const type = document.getElementById('typeSelect').value;
-        const rooms = document.getElementById('roomSelect').value;
-        const name_card = document.getElementById('paymentSelect').value;
-        const card_number = document.getElementById('cardNumber').value;
-        const cvv = document.getElementById('cvv').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phoneNumber = document.getElementById('number').value;
+        const message = document.getElementById('message').value;
 
         // Validation
-        if (!full_name || !email_address || !address || !check_in || !check_out || !guest || !type || !rooms || !name_card || !card_number || !cvv) {
+        if (!name || !email || !phoneNumber || !message) {
             showSweetAlert(
                 "Oops!",
                 "Please fill in all the fields before submitting.",
@@ -31,21 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Corrected formData to match backend expectations
         const formData = JSON.stringify({
-            full_name,
-            email_address,
-            address,
-            check_in,
-            check_out,
-            guest,
-            type,
-            rooms,
-            name_card,
-            card_number,
-            cvv,
+            name,
+            email,
+            phoneNumber,
+            message,
         });
 
-        // Fetch API call
-        fetch(`${API_URL}/reserve`, {
+        console.log(formData);
+
+        // Fetch API call without using API_URL variable directly
+        fetch("https://be-2-bandung-12-production.up.railway.app/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -86,6 +72,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-
-

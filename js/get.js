@@ -1,103 +1,101 @@
-const API_URL = "http://localhost:3000";
-// const API_URL = "https://be-2-bandung-12-production.up.railway.app"
 
+const API_URL = "https://be-2-bandung-12-production.up.railway.app";
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Assuming you have an HTML element with id "reserve-info"
+    const displayReservationsContainer = document.getElementById("reserve-info");
 
+    // Fetch reservations when the page is loaded
+    fetchReservationsAndDisplay();
 
-// document.addEventListener("DOMContentLoaded", async () => {
-// 	if (window.location.pathname.includes("reserve.html")) {
-// 		await fetchReserve();
-// 	// } else if (window.location.pathname.includes("catalog.html")) {
-// 	// 	await setupCatalogPage();
-// 	}
-// });
+    function fetchReservationsAndDisplay() {
+        // Fetch API call
+        fetch(`${API_URL}/reserve`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok.");
+            }
+            return response.json();
+        })
+        .then((reservations) => {
+            // Display the reservations on the webpage
+            displayReservations(reservations);
+        })
+        .catch((error) => {
+            console.error("Error:", error.message);
+            showSweetAlert(
+                "Error",
+                "There was a problem fetching the reservations. Please try again later.",
+                "error"
+            );
+        });
+    }
 
-// // reserve api
+    function displayReservations(reservations) {
+        // Clear existing content
+        displayReservationsContainer.innerHTML = "";
 
-// const fetchReserveById = async (reservationId) => {
-// 	try {
-// 	  const response = await fetch(`${API_URL}/reserve/${reservationId}`);
-	  
-// 	  if (!response.ok) {
-// 		throw new Error(`Failed to fetch reservation data: ${response.status}`);
-// 	  }
-  
-// 	  const reserve = await response.json();
-// 	  console.log(reserve);
-// 	  displayReserve(reserve);
-// 	} catch (error) {
-// 	  console.error("Error:", error.message);
-// 	  // Handle the error, show a message to the user, or log it appropriately
-// 	}
-//   };
-  
-//   // Example usage with a specific reservation ID
-//   const reservationId = 123; // Replace with the actual reservation ID
-//   fetchReserveById(reservationId);
-  
+        // Create a table element
+        const table = document.createElement("table");
+        table.classList.add("reservations-table");
 
-// const displayReserve = (reserve) => {
-// 	const section = document.getElementById("reserve-info");
-// 	reserve.forEach((reserve) => {
-// 		const div = document.createElement("div");
-// 		div.innerHTML = `
-// 		<h3>Dear ${reserve.full_name},</h3>
-// 		<p>Thank you for choosing Lakeswara Hotel. We are delighted to inform you that your reservation has been successfully processed.</p>
-// 		<p>Below are the details of your booking:</p>
-// 		<ul>
-// 		  <li>Check-in Date: ${reserve.check_in}</li>
-// 		  <li>Check-out Date: ${reserve.check_out}</li>
-// 		  <li>Room Type: ${reserve.type}</li>
-// 		  <li>Number of Guests: ${reserve.guest}</li>
-// 		</ul>
-// 		<p>We eagerly anticipate your arrival on ${reserve.check_in}, and our team is committed to ensuring that your stay with us is nothing short of exceptional.</p>
-// 		<p>Should you require any further assistance or have specific preferences you'd like us to consider, please do not hesitate to contact our concierge at [nomor kontak concierge] or reply to this email.</p>
-// 		<p>Once again, we appreciate your trust in Lakeswara, and we look forward to providing you with a memorable and comfortable experience.</p>
-// 		<p>Sincerely,</p>
-// 		<p>Lakeswara Hotel</p>
-//     `;
-// 		section.appendChild(div);
-// 	});
-// };
+        // Create and append table header
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        headerRow.innerHTML = `
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Guests</th>
+            <th>Type</th>
+            <th>Rooms</th>
+            <th>Name on Card</th>
+            <th>Card Number</th>
+            <th>CVV</th>
+        `;
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
 
+        // Create and append table body
+        const tbody = document.createElement("tbody");
+        reservations.forEach((reservation) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${reservation.id}</td>
+                <td>${reservation.full_name}</td>
+                <td>${reservation.email_address}</td>
+                <td>${reservation.address}</td>
+                <td>${reservation.check_in}</td>
+                <td>${reservation.check_out}</td>
+                <td>${reservation.guest}</td>
+                <td>${reservation.type}</td>
+                <td>${reservation.rooms}</td>
+                <td>${reservation.name_card}</td>
+                <td>${reservation.card_number}</td>
+                <td>${reservation.cvv}</td>
+            `;
+            tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
 
-const displayReservation = (reservations) => {
-	const section = document.getElementById("reserve-info");
-  
-	// Create a table element
-	const table = document.createElement("table");
-  
-	// Create a table header row
-	const headerRow = table.createTHead().insertRow(0);
-	const headers = ["Full Name", "Email", "Address", "Check-In Date and Time", "Check-Out Date and Time", "Number of Guests", "Room Type", "Number of Rooms"];
-  
-	headers.forEach((headerText, index) => {
-	  const headerCell = headerRow.insertCell(index);
-	  headerCell.textContent = headerText;
-	});
-  
-	// Create a table body
-	const tbody = table.createTBody();
-  
-	reservations.forEach((reservation) => {
-	  const row = tbody.insertRow();
-  
-	  // Use Object.values to get an array of property values
-	  const reservationValues = Object.values(reservation);
-  
-	  reservationValues.forEach((value, index) => {
-		const cell = row.insertCell(index);
-		cell.textContent = value;
-	  });
-	});
-  
-	// Append the table to the section
-	section.appendChild(table);
-  };
-  
-  // Assume "reservations" is an array of reservation objects
-  
-  // Display the reservation information
-  displayReservation(reservations);
-  
-  
+        // Append the table to the container
+        displayReservationsContainer.appendChild(table);
+    }
+
+    function showSweetAlert(title, text, icon) {
+        return Swal.fire({
+            title: title,
+            text: text,
+            icon: icon,
+            confirmButtonColor: "#645CFF",
+        });
+    }
+});

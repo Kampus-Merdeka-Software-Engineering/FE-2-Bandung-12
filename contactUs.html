@@ -3,18 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capstone Project Group 12</title>
-    <link rel="stylesheet" href="contact us.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/contactUs.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Bitter&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/contactUs.js"></script>
   </head>
   <body>
     <section class="contact" id="contact">
       <div class="row">
-        <form action="" method="post">
+        <form action="" method="post" id="formContact">
           <h3>send us message</h3>
           <!--cara memberi notif agar pesan masuk ke database berhasil-->
           <input
             type="text"
             name="name"
+            id="name"
             required
             maxlength="50"
             placeholder="enter your name"
@@ -23,6 +38,7 @@
           <input
             type="email"
             name="email"
+            id="email"
             required
             maxlength="50"
             placeholder="enter your email"
@@ -31,6 +47,7 @@
           <input
             type="number"
             name="number"
+            id="number"
             required
             maxlength="10"
             min="0"
@@ -40,6 +57,7 @@
           />
           <textarea
             name="msg"
+            id="message"
             class="box"
             required
             maxlength="1000"
@@ -68,9 +86,7 @@
             </div>
             <div class="answer">
               <p>
-                Please contact Lakeswara Hotel customer service. For
-                information, telephone numbers are at the bottom of the main
-                page. Thank You
+                Please contact Lakeswara Hotel customer service. Thank You
               </p>
             </div>
           </div>
@@ -151,5 +167,5 @@
        
   </body>
 
-  <script src="./app.js"></script>
+  <script src="js/contactUs.js"></script>
 </html>
